@@ -1,0 +1,40 @@
+﻿<Window x:Class="Customer.View.MusteriWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Customer.View"
+        mc:Ignorable="d"
+        Title="MusteriWindowView" Height="500" Width="800">
+    <Grid>
+
+        <ListView Name="UserGrid" ItemsSource="{Binding MusteriList}" SelectedItem="{Binding SelectItem}" HorizontalAlignment="Left" Height="209" Margin="10,200,0,0" VerticalAlignment="Top" Width="547">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="MusteriID" DisplayMemberBinding="{Binding MusteriID,Mode=TwoWay}" Width="80" />
+                    <GridViewColumn Header="Adi" DisplayMemberBinding="{Binding Adi,Mode=TwoWay}" Width="80" />
+                    <GridViewColumn Header="Soyadi" DisplayMemberBinding="{Binding Soyadi,Mode=TwoWay}" Width="80" />
+                    <GridViewColumn Header="TelefonNumarısı" DisplayMemberBinding="{Binding TelefonNo,Mode=TwoWay}" Width="100" />
+                    <GridViewColumn Header="Adres" DisplayMemberBinding="{Binding Adres,Mode=TwoWay}" Width="120" />
+                    <GridViewColumn Header="Bakiye" DisplayMemberBinding="{Binding Bakiye,Mode=TwoWay}" Width="80" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox Text="{Binding ElementName=UserGrid,Path=SelectedItem.MusteriID}" HorizontalAlignment="Left" Height="22" Margin="153,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Adı" HorizontalAlignment="Left" Margin="60,44,0,0" VerticalAlignment="Top"/>
+        <Label HorizontalAlignment="Left" Margin="60,75,0,0" VerticalAlignment="Top"/>
+        <Label Content="Soyadı" HorizontalAlignment="Left" Margin="60,70,0,0" VerticalAlignment="Top"/>
+        <Label Content="TelefonNo" HorizontalAlignment="Left" Margin="60,101,0,0" VerticalAlignment="Top"/>
+        <Label Content="Adres" HorizontalAlignment="Left" Margin="60,132,0,0" VerticalAlignment="Top"/>
+        <Label Content="MusteriID" HorizontalAlignment="Left" Margin="60,18,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.619,-0.372"/>
+        <Label Content="Bakiye" HorizontalAlignment="Left" Margin="60,158,0,0" VerticalAlignment="Top"/>
+        <TextBox Text="{Binding ElementName=UserGrid,Path=SelectedItem.Adi}" HorizontalAlignment="Left" Height="22" Margin="153,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox  Text="{Binding ElementName=UserGrid,Path=SelectedItem.TelefonNo}" HorizontalAlignment="Left" Height="22" Margin="153,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox  Text="{Binding ElementName=UserGrid,Path=SelectedItem.Soyadi}" HorizontalAlignment="Left" Height="22" Margin="153,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox  Text="{Binding ElementName=UserGrid,Path=SelectedItem.Bakiye}" HorizontalAlignment="Left" Height="22" Margin="153,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox  Text="{Binding ElementName=UserGrid,Path=SelectedItem.Adres}" HorizontalAlignment="Left" Height="22" Margin="153,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Güncelle" Command="{Binding SaveMusteri}" HorizontalAlignment="Left" Margin="353,24,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Sil" Command="{Binding DeleteMusteri}" HorizontalAlignment="Left" Margin="353,60,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Yeni Kisi" Command="{Binding YeniKisi}" HorizontalAlignment="Left" Margin="353,101,0,0" VerticalAlignment="Top" Width="75"/>
+    </Grid>
+</Window>
